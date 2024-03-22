@@ -1,23 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+import EventHandeler from './events/EventHandeler';
+import UserState3 from './hooks/UserState3';
+import UserState2 from './hooks/UserState2';
+import FormData from './forms/FormData';
+import Childs from './state_lefting/Childs';
+import Todo from './components/Todo';
+import NewTodo from './components/NewTodo';
 
 function App() {
+  const data = "I am form Parent";
+
+  const  handelChildData = (childData) =>{
+    console.log(childData);
+  }
+  
+  const handelNewData = (newTodo)=>{
+    console.log(newTodo);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NewTodo onhandelNewData = {handelNewData} />
+      <Todo title="Learn titledsdsad"/>
+      <Childs data={data} onChildData = {handelChildData}/>
     </div>
   );
 }
